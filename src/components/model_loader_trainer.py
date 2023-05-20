@@ -50,16 +50,3 @@ class model_loader_trainer:
         except Exception as e:
             logging.info("Error in loading the custom model")
             raise CustomException(e)
-"""        
-if __name__ == '__main__':
-    try:
-        model_loader_trainer_obj = model_loader_trainer()
-        base_model = model_loader_trainer_obj.load_eff_model(525,224)
-        model = model_loader_trainer_obj.load_custom_model(base_model,525)
-        print("sucess")
-
-    except Exception as e:
-        logging.info("Error in loading the custom model")
-        raise CustomException(e)
-"""
-

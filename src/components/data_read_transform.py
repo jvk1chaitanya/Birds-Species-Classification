@@ -42,20 +42,3 @@ class read_transform:
         except Exception as e:
             logging.info("Error in data transformation")
             raise CustomException(e)
-
-"""     
-if __name__ == '__main__':
-    try:
-        read_transform_obj = read_transform()
-        train_data, val_data, test_data, labels = read_transform_obj.data_transformer(train_dir=r'D:\personal-projects\birds-classification\100-bird-species\train',
-                                                                              val_dir=r'D:\personal-projects\birds-classification\100-bird-species\valid',
-                                                                              test_dir=r'D:\personal-projects\birds-classification\100-bird-species\test',
-                                                                              batch_size=32,
-                                                                              img_size=224)
-        print("sucess")
-
-    except Exception as e:
-        logging.info("Error in data transformation")
-        raise CustomException(e)
-
-"""

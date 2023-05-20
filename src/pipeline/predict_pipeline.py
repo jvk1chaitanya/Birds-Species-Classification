@@ -10,10 +10,10 @@ from src.logger import logging
 
 class predict_species:
     # Load the saved model
-    model = tf.keras.models.load_model('model/final_model.h5')
+    model = tf.keras.models.load_model(os.path.join(os.getcwd(),r'model\final_model.h5'))
 
     # get the class names
-    class_names = os.listdir(r'D:\personal-projects\birds-classification\100-bird-species\train')
+    class_names = os.listdir(os.path.join(os.getcwd(),r'100-bird-species\train'))
 
     @classmethod
     def predict_pipeline(cls,image_path):
@@ -93,13 +93,3 @@ class predict_species:
         except Exception as e:
             logging.info("Error in predicting the class in predict_pipeline")
             raise CustomException(e)
-
-"""        
-if __name__ == '__main__':
-    try:
-        print(predict_species.predict_pipeline_url(r'https://cdn.download.ams.birds.cornell.edu/api/v1/asset/78541101/1200'))
-
-    except CustomException as e:
-        logging.info("Error in predicting the class")
-        raise CustomException(e)
-"""
