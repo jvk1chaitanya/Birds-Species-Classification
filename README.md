@@ -114,6 +114,11 @@ Below, you can see the website in action.
 ## Video and Notebook for reference:
 Below is a video showcasing our model in action:
 
+
+https://github.com/jvk1chaitanya/Birds-Species-Classification/assets/83896570/df3e73b0-bf61-4cfb-8480-95113ad6d0d3
+
+
+
 You can also find the notebook for this project:
-1. By navigating to the [notebooks] folder in this repository
+1. By navigating to the [notebooks](notebook/bird-species-recognition-using-efficientnet.ipynb) folder in this repository
 2. You can also find the notebook on [Kaggle](https://www.kaggle.com/code/jvkchaitanya410/bird-species-recognition-using-efficientnetb0), a popular platform for data science and machine learning.
