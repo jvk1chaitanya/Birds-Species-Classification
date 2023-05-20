@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bird Classification App</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+      
+      body{
+        background-color: #fff;
+        background-image: url('https://images.unsplash.com/photo-1572402230267-f3e267c1e5a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80');
+        background-size: cover;
+      }
+      #header-001 {
+        margin-top: 30vh;
+      }
+      h1 {
+        color: whitesmoke;
+        font-size: 80px;
+        font-weight: bold;
+        font-family: 'Shift', sans-serif;
+        text-shadow: 3px 3px 5px rgba(0,0,0,0.5);
+      }
+      p {
+        font-size: 24px;
+        color: whitesmoke;
+        font-weight: bold;
+      }
+      .btn-start {
+        background-color: #fff;
+        color: #337ab7;
+        font-size: 24px;
+        font-weight: bold;
+        padding: 20px 40px;
+        margin-top: 50px;
+        border-radius: 30px;
+      }
+      .btn-start:hover {
+        background-color: #337ab7;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="text-center" id = "header-001">
+      <h1 style="font-weight: bold;">Bird Classification App</h1>
+      <p>Identify bird species using deep learning</p>
+      <form method="GET" action="\classify">
+        <button type="submit" class="btn btn-lg btn-start">Start Classifying</button>
+      </form>
+    </div>
+  </body>
+</html>

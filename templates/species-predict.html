@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Image Classifier</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+      body{
+        background-color: black;
+        background-image: url('https://cdn.thecoolist.com/wp-content/uploads/2021/05/Blue-Jay-Colorful-Bird.jpg');
+        background-size: cover;
+      }
+      .container {
+        margin-top: 50px;
+      }
+      .center {
+        text-align: center;
+      }
+      .output {
+        margin-top: 30px;
+        font-size: 20px;
+      }
+
+      #form-001{
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 10px;
+        height: 90vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id = "form-001">
+      <h1 class="center" style="font-size: 70px; font-weight: bold; font-family: 'Shift', sans-serif; text-shadow: 3px 3px 5px rgb(161, 161, 161);">Image Classifier</h1>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <form>
+            <div class="form-group">
+              <label for="url-input">Enter image URL:</label>
+              <input type="text" class="form-control" id="url-input" placeholder="https://example.com/image.jpg">
+            </div>
+            <button type="button" class="btn btn-primary" onclick="classifyImage()">Classify Image</button>
+          </form>
+          <div class="output center">
+            <div id="output-image"></div>
+            <div id="output-class" style="padding: 15px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script>
+function classifyImage() {
+  // Get the input URL
+  var url = document.getElementById("url-input").value;
+  // Disable the button and show the loading spinner
+  var button = document.querySelector('button');
+  button.disabled = true;
+  button.innerHTML = 'Classifying...';
+  // Create a JSON object with the URL
+  var data = {url: url};
+  // Call the Flask API to classify the image
+  fetch('/classify', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  .then(response => response.json())
+  .then(data => {
+    // Show the input image
+    document.getElementById("output-image").innerHTML = '<img src="' + url + '" style="max-width: 100%; max-height: 300px;">';
+    // Show the output class and enable the button
+    document.getElementById("output-class").innerHTML = '<strong>Predicted class: ' + data.class + '</strong>';
+    button.disabled = false;
+    button.innerHTML = 'Classify Image';
+  })
+  .catch(error => {
+    // Show the error message and enable the button
+    document.getElementById("output-class").innerHTML = '<strong>Error: ' + error.message +'</strong>';
+    button.disabled = false;
+    button.innerHTML = 'Classify Image';
+  });
+}
+</script>
+</body>
+</html>

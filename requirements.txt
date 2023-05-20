@@ -1,0 +1,8 @@
+pandas
+numpy
+matplotlib
+tensorflow==2.9.0
+scikit-learn
+Flask
+h5py
+-e .
